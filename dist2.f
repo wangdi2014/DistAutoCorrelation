@@ -1,4 +1,4 @@
-      PROGRAM Dist_Corr
+      PROGRAM DistAutoCorrelation
 !     Declare variables
 
       implicit none
@@ -132,4 +132,4 @@
 !       WRITE(FILE_UNIT3,*) I, OCCURENCE(I)
       END DO
 
-      END PROGRAM Dist_Corr
+      END PROGRAM DistAutoCorrelation
