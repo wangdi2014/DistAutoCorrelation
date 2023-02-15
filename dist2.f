@@ -1,4 +1,4 @@
-      PROGRAM READ_FILE
+      PROGRAM Dist_Corr
 !     Declare variables
 
       implicit none
@@ -18,11 +18,11 @@
       FILE_UNIT2=20
       FILE_UNIT3=30
 
-
       N=10000
       M=10000
       L=1200
 
+!     set NC and MC counters for counting lines in file1 and file2
       NC=0
       MC=0
 
@@ -93,21 +93,22 @@
       WRITE(*,*) NC-1, MC-1
 
 !CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
-!C   Calculate Distance and Occurance              CCC
+!C   Calculate Distance and Occurence              CCC
 !CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
 
+! Initialize Occurence = 0
       DO I=1,IMAX
 
          OCCURENCE(I)=0.0
 
       END DO
 
-
-      DO I=1,NC-1
-         DO J=1,MC-1
 !CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
 !C         Calculate Distance                      CCC
 !CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+      DO I=1,NC-1
+         DO J=1,MC-1
+         
 !           DIST = Y(J,1) - X(I,1) + 1
             DIST = P2(J) - P1(I) + 1
 
@@ -131,4 +132,4 @@
 !       WRITE(FILE_UNIT3,*) I, OCCURENCE(I)
       END DO
 
-      END PROGRAM READ_FILE
+      END PROGRAM Dist_Corr
